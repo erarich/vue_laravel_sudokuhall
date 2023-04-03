@@ -1,0 +1,27 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.13",
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.2",
+        "postcss": "^8.4.21",
+        "tailwindcss": "^3.2.7",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@jridgewell/sourcemap-codec": "^1.4.14",
+        "@vitejs/plugin-vue": "^4.0.0",
+        "pinia": "^2.0.33",
+        "styled-components": "^5.3.9",
+        "sudokutoolcollection": "^1.1.3",
+        "vite-plugin-vuetify": "^1.0.2",
+        "vue": "^3.2.36",
+        "vue-loader": "^17.0.1",
+        "vue-router": "^4.1.6",
+        "vuetify": "^3.1.12"
+    }
+}
