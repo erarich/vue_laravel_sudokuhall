@@ -1,13 +1,13 @@
 <template>
   <section>
-    <div class="gameOptions">
+    <div>
       <GameNumberSelector></GameNumberSelector>
-      <!-- <GameDifficulty></GameDifficulty> -->
-      <div class='gameMisTimer'>
+      <div>
         <GameMistakes></GameMistakes>
         <!-- <GameTimer></GameTimer> -->
       </div>
       <!-- <GameExtraActions></GameExtraActions> -->
+      <GameDifficulty></GameDifficulty>
     </div>
   </section>
 </template>

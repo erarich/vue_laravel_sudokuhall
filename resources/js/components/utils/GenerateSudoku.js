@@ -2,9 +2,9 @@ import SudokuToolCollection from "sudokutoolcollection";
 
 const sudoku = SudokuToolCollection();
 
-export const generateSudoku = () => {
+export const generateSudoku = (Difficulty) => {
 
-  const board = sudoku.generator.generate('easy')
+  const board = sudoku.generator.generate(Difficulty)
   const solution = sudoku.solver.solve(board);
   const boardArray = board.split("");
   const solutionArray = solution.split("");
@@ -30,6 +30,14 @@ export function findEmptyElements(boardArray) {
   return initialEmptyElements;
 }
 
-const sudokuObject = generateSudoku()
-export const sudokuObjectwithEmptyElements = clearDots(sudokuObject)
-export const arrayWithIndexOfEmptyElements = findEmptyElements(sudokuObjectwithEmptyElements.boardArray)
+export const generateComplete = (Difficulty) => {
+
+  const sudokuObject = generateSudoku(Difficulty)
+  const sudokuObjectwithEmptyElements = clearDots(sudokuObject)
+  const arrayWithIndexOfEmptyElements = findEmptyElements(sudokuObjectwithEmptyElements.boardArray)
+
+  return {
+    boardObject: sudokuObjectwithEmptyElements,
+    arrayWithIndexOfEmptyElements: arrayWithIndexOfEmptyElements,
+  }
+}

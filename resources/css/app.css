@@ -367,3 +367,23 @@
 .game {
   width: 70%;
 }
+
+.GameDifficulty {
+  /* background-color: aqua; */
+  border-top: 1px solid ;
+}
+
+.GameDifficulty p {
+  text-transform: uppercase;
+  font-size: large;
+  text-align: center;
+}
+
+.GameDifficulty span {
+  font-weight: bold;
+}
+
+.GameDifficulty select {
+  position: relative;
+  font-family: Arial;
+}

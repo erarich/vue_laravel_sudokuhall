@@ -4,7 +4,7 @@
       <GameCompletion></GameCompletion>
     </div>
     <div v-else class="board">
-      <template v-for="(item, index) in puzzle">
+      <template v-for="(item, index) in boardArray" :key="item">
         <div 
           class="tile"
           v-on:click="selectTile(index)">
@@ -18,13 +18,20 @@
 <script>
 import { useNumberSelectorStore } from '../../stores/NumberSelector.js'
 import { useMistakesStore } from '../../stores/Mistakes.js'
-import { usePuzzleStore } from '../../stores/Puzzle.js'
 import { useVerificationStore } from '../../stores/Verification.js'
+import { useDifficultyStore } from '../../stores/Difficulty.js'
+import { generateComplete } from '../utils/GenerateSudoku.js'
 import GameCompletion from './GameCompletion.vue'
 
+let Difficulty = useDifficultyStore.currentDifficulty
+
+let puzzleObject = generateComplete(Difficulty)
+let boardObject = puzzleObject.boardObject
+let arrayWithIndexOfEmptyElements = puzzleObject.arrayWithIndexOfEmptyElements
+
 const compareArrays = (a, b) => {
-    return JSON.stringify(a) === JSON.stringify(b);
-  }
+  return JSON.stringify(a) === JSON.stringify(b);
+}
 
 export default {
   components: {
@@ -34,21 +41,18 @@ export default {
     return {
       NumberSelector: useNumberSelectorStore(),
       Mistakes: useMistakesStore(),
-      Verification: useVerificationStore()
-    }
-  },
-  computed: {
-    puzzle() {
-      return usePuzzleStore().sudokuPuzzle
+      Verification: useVerificationStore(),
+      boardArray: [...boardObject.boardArray], // Criar uma propriedade reativa para armazenar boardObject.boardArray
     }
   },
   methods: {
     selectTile: function (index) {
       const NumberSelector = useNumberSelectorStore()
       const Mistakes = useMistakesStore()
-      const Puzzle = usePuzzleStore()
       const Verification = useVerificationStore()
       let selNumberString
+
+      console.log(this.boardArray)
 
       try {
         selNumberString = NumberSelector.numSelected.toString()
@@ -57,10 +61,10 @@ export default {
       }
 
       if (NumberSelector.numSelected !== null) {
-        if (Puzzle.sudokuPuzzle[index] === '') {
-          if (selNumberString === Puzzle.sudokuSolution[index]) {
-            Puzzle.updatePuzzle(index, selNumberString)
-            let verification = compareArrays(Puzzle.sudokuPuzzle, Puzzle.sudokuSolution)
+        if (this.boardArray[index] === '') {
+          if (selNumberString === boardObject.solutionArray[index]) {
+            this.boardArray[index] = selNumberString
+            let verification = compareArrays(this.boardArray, boardObject.solutionArray)
             if (verification === true) {
               Verification.toggleVerification()
             }
@@ -68,11 +72,14 @@ export default {
             Mistakes.increment()
           }
         }
+      }
     }
-
-    }
+  },
+  created() {
+    // Adicione um watcher em boardObject.boardArray para atualizar a propriedade reativa "boardArray" sempre que houver uma mudança
+    this.$watch(() => boardObject.boardArray, (newValue) => {
+      this.boardArray = [...newValue]
+    })
   }
 }
-
-
 </script>

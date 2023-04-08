@@ -12,9 +12,25 @@ export const usePuzzleStore = defineStore('puzzle', {
     sudokuSolution: sudokuSolution,
     arrayWithEmptyPositions: arrayWithEmptyPositions,
   }),
+  mutations: {
+    updateSudokuPuzzle(newValue) {
+      this.sudokuPuzzle = newValue
+    },
+    updateSudokuSolution(newValue) {
+      this.sudokuSolution = newValue
+    },
+    updateArrayWithEmptyPositions(newValue) {
+      this.arrayWithEmptyPositions = newValue
+    },
+  },
   actions: {
     updatePuzzle(index, number) {
       this.sudokuPuzzle[index] = number
-    }
+    },
+    updateAllStates(sudokuPuzzle, sudokuSolution, arrayWithEmptyPositions) {
+      this.updateSudokuPuzzle(sudokuPuzzle)
+      this.updateSudokuSolution(sudokuSolution)
+      this.updateArrayWithEmptyPositions(arrayWithEmptyPositions)
+    },
   },
 })
