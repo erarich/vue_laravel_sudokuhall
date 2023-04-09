@@ -6,7 +6,13 @@
     <div v-else class="board">
       <template v-for="(item, index) in boardArray" :key="item">
         <div 
-          class="tile"
+          class="tile" 
+          :class="[
+            !arrayWithIndexOfEmptyElements.includes(index) ? 'tile-start' : '', 
+            ![2, 5, 11, 14, 29, 32, 38, 41, 56, 59, 65, 68, 74, 77].includes(index) ? '' : 'vertical-line',
+            ![18, 19, 21, 22, 24, 25, 26, 45, 46, 48, 49, 51, 52, 53].includes(index) ? '' : 'horizontal-line',
+            (index === 20 || index === 23 || index === 47 || index === 50) ? 'vertical-line horizontal-line' : '',
+          ]"
           v-on:click="selectTile(index)">
           {{ item }}
         </div>

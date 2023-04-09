@@ -4,7 +4,19 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Gafata', sans-serif;
 }
+
+.innerContainer {
+  /* background-color: aquamarine; */
+  margin: 0 auto;
+  display: flex;
+  max-width: 700px;
+  min-width: 270px;
+  margin-top: 30px;
+}
+
+/* Header.vue */
 
 .header {
   align-items: center;
@@ -48,6 +60,8 @@
 .header__logo {
   font-size: 24px;
 }
+
+/* Menu.vue */
 
 .menu {
   color:black;
@@ -100,6 +114,8 @@
   text-decoration: underline;
 }
 
+/* Signup.vue */
+
 .signup-forms {
   padding-top: 20px;
   text-align: center;
@@ -107,6 +123,8 @@
   width: 50%;
   margin: 0 auto;
 }
+
+/* Profile.vue */
 
 .aside {
   padding-top: 15px;;
@@ -131,23 +149,13 @@
   width: 75%;
 }
 
-/* Mistakes.jsx */
-#errors {
-  color: #2ea44f;
+
+/* GameSection.vue */
+
+.game {
+  width: 70%;
 }
 
-.spanMistakes {
-  color: black;
-}
-
-.headerBoard {
-  display: flex;
-  width: 28rem;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-/* Board.jsx */
 .board {
   width: 29rem; /* 450 px*/
   /* height: 28rem; 450 px */
@@ -181,141 +189,7 @@
   border-right: 0.125rem solid #063757;
 }
 
-
-/* NumberSelector.jsx */
-#digits {
-  width: 9.375rem;
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  padding-bottom: 20px;
-}
-
-.number {
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid black;
-  margin: 0.125rem;
-  font-size: 1.25rem;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.1s ease-in-out;
-  border-radius: 0.313rem;
-}
-
-.number:hover {
-  font-size: 26px;  
-  background-color: #3498db;
-}
-
-.inactive {
-  background-color: #2ea44f;
-}
-
-.active {
-  background-color: #3498db;  
-}
-
-.gameconfig {
-  /* background-color: yellow; */
-  width: 50%;
- }
-
-.gamesection {
-   /* background-color: whitesmoke; */
-  display: flex;
-  flex-direction: row;
-  margin-top: 2%;
-  margin-left: 8%;
-  margin-right: 9%;
-  justify-content: space-between;
-}
-
-.gameSelectorTimer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  /* background-color: aquamarine; */
-}
-
-.gameSelectorTimer2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  /* background-color: orange; */
-  margin-top: 8%;
-}
-
-.main_section_primary_div {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  /* background-color: yellowgreen;  */
-}
-
-.timer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.timer p {
- font-size: 20px;
-}
-
-.innerContainer {
-  /* background-color: aquamarine; */
-  margin: 0 auto;
-  display: flex;
-  max-width: 700px;
-  min-width: 270px;
-  margin-top: 30px;
-}
-
-.gameOptions {
-  /* background-color: yellowgreen; */
-  width: 30%;
-}
-
-.gameDifficulty {
-  /* background-color: yellow; */
-  text-align: center;
-  left: 20px;
-  top: 39px;
-}
-
-.gameMisTimer {
-  display: flex;
-  justify-content: center;
-  left: 10px;
-  margin: 0 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: center;
-}
-
-.gameMistakes {
-  padding: 4%;
-  /* background-color: blueviolet; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.gameTimer {
-  padding: 4%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: orangered; 
-}
+/* GameCompletion.vue */
 
 .CompletionBox {
   background-color: #3498db;
@@ -364,9 +238,64 @@
   padding: 10px;
 }
 
-.game {
-  width: 70%;
+/* GameOptions.vue */
+
+.gameOptions {
+  /* background-color: yellowgreen; */
+  width: 30%;
 }
+
+/* GameNumberSelector.vue */
+
+#digits {
+  width: 9.375rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+.number {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid black;
+  margin: 0.125rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+  border-radius: 0.313rem;
+}
+
+.number:hover {
+  font-size: 35px;  
+  background-color: #24292f;
+  color:white;
+}
+
+.inactive {
+  background-color: #2ea44f;
+}
+
+.active {
+  background-color: #24292f;
+  color:white;
+}
+
+/* GameMistakes.vue */
+
+.gameMistakes {
+  /* padding: 4%; */
+  /* background-color: blueviolet; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* GameDifficulty.vue */
 
 .GameDifficulty {
   /* background-color: aqua; */

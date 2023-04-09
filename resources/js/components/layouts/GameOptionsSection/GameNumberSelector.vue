@@ -1,14 +1,13 @@
 <template>
-  <div class="gameNumberSelector">
+  <div>
     <div id="digits">
       <template v-for="number in numbers">
         <div 
-          class="number" :class="{ inactive: isInactive }" 
-          v-on:click="() => {NumberSelector.changeNumSelected(number.id)}">
+          v-on:click="() => {NumberSelector.changeNumSelected(number.id)}"
+          class="number" :class="NumberSelector.numSelected === number.id ? active : 'inactive'" >
           {{ number.id }}
         </div>
       </template>
-      <p>Current number: {{ NumberSelector.numSelected }}</p>
     </div>
   </div>
 </template>
@@ -22,7 +21,7 @@ export default {
   data() {
     return {
       numbers,
-      isInactive: true,
+      active: 'active',
       NumberSelector: useNumberSelectorStore()
 
     }
