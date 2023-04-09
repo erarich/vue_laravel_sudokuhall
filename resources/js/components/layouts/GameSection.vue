@@ -19,30 +19,27 @@
 import { useNumberSelectorStore } from '../../stores/NumberSelector.js'
 import { useMistakesStore } from '../../stores/Mistakes.js'
 import { useVerificationStore } from '../../stores/Verification.js'
-import { useDifficultyStore } from '../../stores/Difficulty.js'
 import { generateComplete } from '../utils/GenerateSudoku.js'
 import GameCompletion from './GameCompletion.vue'
-
-let Difficulty = useDifficultyStore.currentDifficulty
-
-let puzzleObject = generateComplete(Difficulty)
-let boardObject = puzzleObject.boardObject
-let arrayWithIndexOfEmptyElements = puzzleObject.arrayWithIndexOfEmptyElements
 
 const compareArrays = (a, b) => {
   return JSON.stringify(a) === JSON.stringify(b);
 }
 
 export default {
+  props: ['difficulty'],
   components: {
     GameCompletion
   },
   data() {
+    const { boardObject, arrayWithIndexOfEmptyElements } = generateComplete(this.difficulty);
     return {
       NumberSelector: useNumberSelectorStore(),
       Mistakes: useMistakesStore(),
       Verification: useVerificationStore(),
-      boardArray: [...boardObject.boardArray], // Criar uma propriedade reativa para armazenar boardObject.boardArray
+      boardArray: boardObject.boardArray,
+      solutionArray: boardObject.solutionArray,
+      arrayWithIndexOfEmptyElements: arrayWithIndexOfEmptyElements,
     }
   },
   methods: {
@@ -52,8 +49,6 @@ export default {
       const Verification = useVerificationStore()
       let selNumberString
 
-      console.log(this.boardArray)
-
       try {
         selNumberString = NumberSelector.numSelected.toString()
       } catch (e) {
@@ -62,9 +57,9 @@ export default {
 
       if (NumberSelector.numSelected !== null) {
         if (this.boardArray[index] === '') {
-          if (selNumberString === boardObject.solutionArray[index]) {
+          if (selNumberString === this.solutionArray[index]) {
             this.boardArray[index] = selNumberString
-            let verification = compareArrays(this.boardArray, boardObject.solutionArray)
+            let verification = compareArrays(this.boardArray, this.solutionArray)
             if (verification === true) {
               Verification.toggleVerification()
             }
@@ -76,8 +71,7 @@ export default {
     }
   },
   created() {
-    // Adicione um watcher em boardObject.boardArray para atualizar a propriedade reativa "boardArray" sempre que houver uma mudança
-    this.$watch(() => boardObject.boardArray, (newValue) => {
+    this.$watch(() => this.boardArray, (newValue) => {
       this.boardArray = [...newValue]
     })
   }

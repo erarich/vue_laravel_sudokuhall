@@ -13,7 +13,7 @@
       </div>
       <div class="CompletionBoxListValues">
         <ul class="CompletionBoxListUL">
-          <li>{Difficulty}</li>
+          <li>{{ Difficulty.currentDifficulty }}</li>
           <li>{{ Mistakes.mistakes }}</li>
           <li>{Time}</li>
           <li>{Points}</li>
@@ -24,12 +24,14 @@
 </template>
 
 <script>
+import { useDifficultyStore } from '../../stores/Difficulty.js'
 import { useMistakesStore } from '../../stores/Mistakes.js'
 
 export default {
   data() {
     return {
-      Mistakes: useMistakesStore()
+      Mistakes: useMistakesStore(),
+      Difficulty: useDifficultyStore(),
     }
   },
 }
