@@ -8,7 +8,6 @@ Projeto pessoal criado com a intenção de estudar Vue.js e Laravel, trata-se de
 
 Hierarquia de Componentes:
 
-
 A página inicial (Home) é composta por dois componentes principais, sendo eles GameSection e GameOptionsSection, no qual ambos retornam elementos html <section>. GameSection é a seção onde está presente o tabuleiro do sudoku além do elemento que é renderizado quando um puzzle é completado (o componente GameCompletion). GameOptionsSection é a seção no qual estão as opções para gerenciamento do sudoku.
 
 
@@ -18,6 +17,12 @@ Um **jogo completo** possui as seguintes informações:
 * Erros
 * Tempo de conclusão
 * Pontuação
+
+### Para implementar/corrigir
+
+* Ir para logo não recarregar a página se já estiver nela.
+* Se completar um jogo no "Easy" e depois voltar para a Home ou a página "Easy", a GameCompletion ainda permanece. O mesmo deve manter caso seja completado em outra dificuldade.
+* Adicionar botão de reiniciar para cada dificuldade
 
 ### Stack utilizada
 

@@ -5,6 +5,9 @@ export const useMistakesStore = defineStore('mistakes', {
   actions: {
     increment() {
       this.mistakes++;
-    }
+    },
+    setInitialValue() {
+      this.mistakes = 0;
+    } 
   },
 })

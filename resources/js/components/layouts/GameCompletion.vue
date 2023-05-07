@@ -8,15 +8,13 @@
           <li>Difficulty</li>
           <li>Mistakes</li>
           <li>Time</li>
-          <li>Score</li>
         </ul>
       </div>
       <div class="CompletionBoxListValues">
         <ul class="CompletionBoxListUL">
           <li>{{ Difficulty.currentDifficulty }}</li>
           <li>{{ Mistakes.mistakes }}</li>
-          <li>{Time}</li>
-          <li>{Points}</li>
+          <li>{{ Time.formattedTime }}</li>
         </ul>
       </div>
     </div>
@@ -26,12 +24,14 @@
 <script>
 import { useDifficultyStore } from '../../stores/Difficulty.js'
 import { useMistakesStore } from '../../stores/Mistakes.js'
+import { useTimerStore } from '../../stores/Timer.js'
 
 export default {
   data() {
     return {
       Mistakes: useMistakesStore(),
       Difficulty: useDifficultyStore(),
+      Time: useTimerStore(),
     }
   },
 }

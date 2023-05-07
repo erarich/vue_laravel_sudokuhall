@@ -26,6 +26,7 @@ import { useNumberSelectorStore } from '../../stores/NumberSelector.js'
 import { useMistakesStore } from '../../stores/Mistakes.js'
 import { useVerificationStore } from '../../stores/Verification.js'
 import { generateComplete } from '../utils/GenerateSudoku.js'
+import { useTimerStore } from '../../stores/Timer.js'
 import GameCompletion from './GameCompletion.vue'
 
 const compareArrays = (a, b) => {
@@ -53,6 +54,7 @@ export default {
       const NumberSelector = useNumberSelectorStore()
       const Mistakes = useMistakesStore()
       const Verification = useVerificationStore()
+      const Time = useTimerStore()
       let selNumberString
 
       try {
@@ -68,6 +70,7 @@ export default {
             let verification = compareArrays(this.boardArray, this.solutionArray)
             if (verification === true) {
               Verification.toggleVerification()
+              Time.pause()
             }
           } else {
             Mistakes.increment()

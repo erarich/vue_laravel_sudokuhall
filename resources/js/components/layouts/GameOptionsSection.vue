@@ -2,9 +2,9 @@
   <section class="gameOptions">
     <div>
       <GameNumberSelector></GameNumberSelector>
-      <div>
+      <div class="gameMistakesGameTimer">
         <GameMistakes></GameMistakes>
-        <!-- <GameTimer></GameTimer> -->
+        <GameTimer></GameTimer>
       </div>
       <!-- <GameExtraActions></GameExtraActions> -->
       <GameDifficulty></GameDifficulty>

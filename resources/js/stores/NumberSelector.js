@@ -8,6 +8,9 @@ export const useNumberSelectorStore = defineStore('selectedNumbers', {
   actions: {
     changeNumSelected(number) {
       this.numSelected = number
-    }
+    },
+    setInitialValue() {
+      this.numSelected = null;
+    } 
   },
 })

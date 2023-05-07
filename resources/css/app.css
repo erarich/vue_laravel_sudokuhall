@@ -192,7 +192,8 @@
 /* GameCompletion.vue */
 
 .CompletionBox {
-  background-color: #3498db;
+  background: #24292f;
+  color: white;
   width: 450px;
   height: 450px;
   text-align: center;
@@ -209,6 +210,7 @@
 }
 
 .CompletionBox2 {
+  color: black;
   padding: 20px;
   display: flex;
   flex-wrap: nowrap;
@@ -217,12 +219,16 @@
 }
 
 .CompletionBoxList {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
   background-color: white;
   text-align: left;
   font-size: 20px;
 }
 
 .CompletionBoxListValues {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   background-color: #2ea44f;
   text-align: left;
   font-size: 20px;
@@ -277,7 +283,7 @@
 }
 
 .inactive {
-  background-color: #2ea44f;
+  background-color: #a1ecb6;
 }
 
 .active {
@@ -315,4 +321,16 @@
 .GameDifficulty select {
   position: relative;
   font-family: Arial;
+}
+
+.gameMistakesGameTimer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.gameTimer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
