@@ -1,64 +1,44 @@
 # SUDOKUHALL
 
-Aplicação web onde é possível completar jogos de sudoku.
+A web app to play sudoku puzzles with various levels of difficulty
 
-Projeto pessoal criado com a intenção de estudar Vue.js e Laravel, trata-se de uma reformulação do projeto [react_sudokuhall](https://github.com/erarich/react_sudokuhall), escrito com o framework React, agora com adição de back-end.
+Personal project created with the intention of studying Vue.js and Laravel. It is a revamp of the [react_sudokuhall](https://github.com/erarich/react_sudokuhall) project, which was originally written with the React framework, but now includes a backend.
 
-### Funcionamento
+### Stack
 
-Hierarquia de Componentes:
+* Laravel (PHP) - version 10
+* Vue.js (JavaScript) - version 3
+* Pinia (standard Vue.js library for state management)
+* Vuetify (standard Vue.js library for design; Vue.js componentes)
+* Vue Router (standard Vue.js library for page routing)
 
-A página inicial (Home) é composta por dois componentes principais, sendo eles GameSection e GameOptionsSection, no qual ambos retornam elementos html <section>. GameSection é a seção onde está presente o tabuleiro do sudoku além do elemento que é renderizado quando um puzzle é completado (o componente GameCompletion). GameOptionsSection é a seção no qual estão as opções para gerenciamento do sudoku.
+## How to install and run the project
 
+Requiriments: [composer](https://getcomposer.org/download/) and [npm (Node.js)](https://nodejs.dev/pt/download/) 
 
-Um **jogo completo** possui as seguintes informações:
-
-* Dificuldade
-* Erros
-* Tempo de conclusão
-* Pontuação
-
-### Para implementar/corrigir
-
-* Ir para logo não recarregar a página se já estiver nela.
-* Se completar um jogo no "Easy" e depois voltar para a Home ou a página "Easy", a GameCompletion ainda permanece. O mesmo deve manter caso seja completado em outra dificuldade.
-* Adicionar botão de reiniciar para cada dificuldade
-
-### Stack utilizada
-
-* Laravel (PHP) - versão 10
-* Vue.js (JavaScript) - versão 3
-* Pinia (biblioteca padrão Vue.js para gerenciamento de estados)
-* Vuetify (biblioteca padrão Vue.js para design; componentes Vue.js)
-* Vue Router (biblioteca padrão Vue.js para roteamento)
-
-## Como instalar e rodar o projeto
-
-Requisitos: [composer](https://getcomposer.org/download/) e [npm (Node.js)](https://nodejs.dev/pt/download/) 
-
-Clone o projeto:
+Clone the project:
 
     git clone https://github.com/erarich/vue_laravel_sudokuhall.git
 
-Instale as dependências de PHP e JavaScript:
+Install the PHP and JavaScript dependencies:
 
     composer install
     npm install
     
-Rode o servidor de desenvolvimento do Vite:
+Run the Vite development server:
 
     npm run dev
  
-Rode o servidor de desenvolvimento do Laravel:
+Run the Laravel development server:
 
     php artisan serve
 
 
-## Licenças
+## License
 
-[Unlicense/Public Domain](https://choosealicense.com/licenses/#unlicense). Sem licença, utilize como quiser.
+[Unlicense/Public Domain](https://choosealicense.com/licenses/#unlicense). You can use app this as you wish.
 
-Sudokuhall utiliza biblioteca de terceiros para a geração de sudokus: [SudokuToolCollection](https://www.npmjs.com/package/sudokutoolcollection). Então, se você utilizar essa aplicação, precisa incluir as licenças:
+Sudokuhall utilizes a third party library to generate and solve the sudoku puzzles: [SudokuToolCollection](https://www.npmjs.com/package/sudokutoolcollection). So, if you use this app, you must include the licenses below.
 
 [The MIT License (MIT)](https://choosealicense.com/licenses/mit/)
 
@@ -70,12 +50,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Créditos
+## Acknowledgments
 
-* [manin-dev/laravel-vue-boilerplate](https://github.com/manin-dev/laravel-vue-boilerplate) - pelo boilerplate.
-* [ImKennyYip/Sudoku](https://github.com/ImKennyYip/Sudoku) - pelo tutorial basico com JavaScript vanilla.
-* [lacrioque/sudoku.js](https://github.com/lacrioque/sudoku.js) - pela biblioteca geradora de sudoku.
-* [robatron/sudoku.js](https://github.com/robatron/sudoku.js) - também pela biblioteca geradora de sudoku.
-
+* [manin-dev/laravel-vue-boilerplate](https://github.com/manin-dev/laravel-vue-boilerplate) - for the boilerplate.
+* [ImKennyYip/Sudoku](https://github.com/ImKennyYip/Sudoku) - for the basic tutorial with vanilla JavaScript.
+* [lacrioque/sudoku.js](https://github.com/lacrioque/sudoku.js) - for the sudoku generator library.
+* [robatron/sudoku.js](https://github.com/robatron/sudoku.js) - also for the sudoku generator library.
 
 
