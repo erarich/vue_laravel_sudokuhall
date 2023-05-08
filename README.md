@@ -14,16 +14,30 @@ Personal project created with the intention of studying Vue.js and Laravel. It i
 
 ## How to install and run the project
 
-Requiriments: [composer](https://getcomposer.org/download/) and [npm (Node.js)](https://nodejs.dev/pt/download/) 
+Requeriments: [composer](https://getcomposer.org/download/),  [npm (Node.js)](https://nodejs.dev/pt/download/), [curl-php](https://www.php.net/manual/en/book.curl.php) and [xml-php](https://www.php.net/manual/pt_BR/book.simplexml.php).
 
 Clone the project:
 
     git clone https://github.com/erarich/vue_laravel_sudokuhall.git
 
+Enter the project directory:
+
+    cd vue_laravel_sudokuhall
+
+Rename the env.example file to .env and fill it with your local info, then:
+
+Update composer:
+
+    composer update
+
 Install the PHP and JavaScript dependencies:
 
     composer install
     npm install
+
+Generate Lavarel keys:
+
+    php artisan key:generate
     
 Run the Vite development server:
 
